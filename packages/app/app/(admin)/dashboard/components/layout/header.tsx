@@ -1,10 +1,13 @@
+'use client'
 import { Avatar } from "@/components/ui/avatar";
 import { DropdownMenuItem,DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { hookContext } from "@/context/AppProvide";
 import { AvatarImage } from "@radix-ui/react-avatar";
 
 export default function Header(){
+    const {user} = hookContext()
     return(
         <>
         <div className="flex h-16 items-center w-full justify-between">
@@ -28,8 +31,8 @@ export default function Header(){
                                     <AvatarImage src={'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'}/>
                                 </Avatar>
                                 <div className="grid text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold">Matheus</span>
-                                    <span className="truncate text-xs">matheus@teste.com</span>
+                                    <span className="truncate font-semibold">{user?.name}</span>
+                                    <span className="truncate text-xs">{user?.email}</span>
                                 </div>
                             </div>
                         </DropdownMenuTrigger>

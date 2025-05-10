@@ -1,8 +1,9 @@
 'use client'
 import { Input } from "@/components/ui/input";
 import { hookContext } from "@/context/AppProvide";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LoginForm } from "../components/loginForm";
+import { useRouter } from "next/navigation";
 
 interface formData{
     name?: string,
@@ -20,7 +21,14 @@ export default function login(){
         password: "",
         confirm_password: ""
     })
-    const {login, register} = hookContext()
+    const router = useRouter()
+    const {login, register, isLoading, authToken} = hookContext()
+
+    useEffect(() => {
+        if(authToken){
+            router.push('/dashboard')
+        }
+    }, [authToken])
 
     const handleOnChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
