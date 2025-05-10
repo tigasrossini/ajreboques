@@ -1,6 +1,7 @@
 'use client'
 import { createContext, useContext, useState } from "react"
 import axios from "axios"
+import { headers } from "next/headers"
 
 interface AppProviderType{
     isLoading: boolean,
@@ -46,6 +47,23 @@ export const  AppProvider = ({children}: Readonly<{children: React.ReactNode}>) 
                 if(error.response){
                     console.log(error.response)
                 }
+            })
+            console.log(response)
+        }catch(error){
+
+        }finally{
+            setIsLoading(false)
+        }
+    }
+
+    const profile = async () => {
+        setIsLoading(true)
+        try{
+            const response = await axios.get(`${URL_API}/profile`, {headers: {Authorization: `Bearer ${authToken}`}} )
+                .then(response => response.data).catch(error => {
+                    if(error.response){
+                        console.log(error.response)
+                    }   
             })
             console.log(response)
         }catch(error){

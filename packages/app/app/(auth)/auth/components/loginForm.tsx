@@ -10,7 +10,7 @@ interface LoginFormProps{
     }
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onSubmit: (e: React.ChangeEvent<HTMLFormElement>) => void
-}//teste
+}
 
 export function LoginForm({formData, onChange, onSubmit}: LoginFormProps){
     return (
