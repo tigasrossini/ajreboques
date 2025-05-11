@@ -6,8 +6,8 @@ import { useEffect } from "react";
 
 export default function Dashboard() {
     const {authToken} = hookContext()
-    const router = useRout  er()
-
+    const router = useRouter()
+    
     return (
         <>
         <Sidebar/>
