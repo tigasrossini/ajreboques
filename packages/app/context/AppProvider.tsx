@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import axios from "axios"
 import Cookies from "js-cookie"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 interface User{
     id: number,
@@ -35,8 +35,6 @@ export const  AppProvider = ({children}: Readonly<{children: React.ReactNode}>) 
         if(token){
             setAuthToken(token)
             profile()
-        }else{
-            router.push('/auth/login')
         }
         setIsLoading(false)
     }, [authToken])
