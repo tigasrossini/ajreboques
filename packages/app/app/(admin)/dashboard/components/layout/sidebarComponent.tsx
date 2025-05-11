@@ -35,7 +35,7 @@ export default function SidebarComponent() {
                             <a href="#" className="flex justify-between items-center p-2">
                                 <div className="flex items-center gap-2 justify-center">
                                     <div className="flex items-center justify-center aspect-square size-8 rounded-lg bg-white text-gray-500">
-                                        <LayoutGrid className="size-4"/>
+                                        <LayoutGrid className="w-6 h-6"/>
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="font-semibold text-sm">AJ REBOQUES</span>

@@ -1,6 +1,6 @@
 'use client'
 import { Input } from "@/components/ui/input";
-import { hookContext } from "@/context/AppProvide";
+import { hookContext } from "@/context/AppProvider";
 import { useEffect, useState } from "react";
 import { LoginForm } from "../components/loginForm";
 import { useRouter } from "next/navigation";
