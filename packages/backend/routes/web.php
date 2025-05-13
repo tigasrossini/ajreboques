@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/email', function(){
     $user = new \stdClass();
     $user -> name = 'Usuario teste';
-    $user -> email = 'pewipiw950@inkight.com';
+    $user -> email = 'tiagorossinicorrea@gmail.com';
 
     Mail::to($user->email)->send(new BemVindoMail);
 
