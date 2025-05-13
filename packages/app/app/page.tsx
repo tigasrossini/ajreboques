@@ -1,7 +1,7 @@
+'use client'
 import { NavBar } from "@/components/nav-bar";
 
-export default async function Home() {
-  //const data = await get()
+export default function Home() {
   return (
     <>
       <NavBar/>

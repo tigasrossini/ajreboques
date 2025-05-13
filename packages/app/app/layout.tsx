@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AppProvider } from "@/context/AppProvide";
+import { AppProvider } from "@/context/AppProvider";
 
 
 export default function RootLayout({
