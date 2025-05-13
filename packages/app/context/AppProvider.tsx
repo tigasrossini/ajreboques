@@ -81,7 +81,6 @@ export const  AppProvider = ({children}: Readonly<{children: React.ReactNode}>) 
         }
     }
 
-
     const profile = async () => {
         setIsLoading(true)
         try{
