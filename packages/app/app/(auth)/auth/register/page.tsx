@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { RegisterForm } from "../components/registerForm";
 import { hookContext } from "@/context/AppProvider";
+import { useRouter } from "next/navigation";
 
 interface formData{
     name: string,
@@ -26,10 +27,13 @@ export default function register(){
         })
     }
 
+    const router = useRouter()
+
     const handleFormChange = async (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault()
         try{
             await register(formData.name, formData.email, formData.password, formData.confirm_password!)
+            router.push('/')
         }catch(Error){
             console.log("Authentication error")
         }
