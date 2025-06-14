@@ -1,79 +1,52 @@
-import {NavigationMenu, NavigationMenuTrigger, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuLink} from '@/components/ui/navigation-menu'
-import { Button } from './ui/button'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import React from "react";
 
-const defaultLogo = {
-    url: '/',
-    src: '../../logo.png',
-    alt: 'LOGO AJ REBOQUES',
-    title: 'AJ REBOQUES'
-}
-
-const defaultMenu = [
-    {
-        title: "a",
-        url: 'a'
-    },
-    {
-        title: 'b',
-        url: 'b'
-    }
-
-]
-
-type MenuItem = {
-    title: string,
-    url: string
-}
-
-interface navBarProps{
-    logo?: typeof defaultLogo,
-    menu?: MenuItem[]
-}
-
-
-export function NavBar({logo = defaultLogo, menu =  defaultMenu}: navBarProps){
-    return(
+export function NavBar() {
+  // Navigation items data
+  const navItems = [
+    { text: "Sobre Nós", href: "#" },
+    { text: "Serviços", href: "#" },
+    { text: "Nosso trabalho", href: "#" },
+    { text: "FAQs", href: "#" },
+    { text: "Contato", href: "#" },
+  ];
+    return (
         <>
-        <section>
-            <div>
-                <nav className="flex justify-between items-center px-4 py-2 border-b bg-stone-100">
-                    <div>
-                        <a href={logo.url} className="gap-4">
-                            <img src={logo.src} alt={logo.alt} title={logo.title}  />
-                        </a>
+            <header className="w-full h-[100px] overflow-hidden bg-[#101014]">
+                <div className="max-w-[1920px] h-[85px] mx-auto px-[100px] flex items-center justify-between">
+                    {/* Logo */}
+                    <div className="[font-family:'Manrope-Bold',Helvetica] font-bold text-white text-lg tracking-[-0.10px] leading-[18px]">
+                        AJ REBOQUES
                     </div>
-                    <div className="flex gap-4 items-center">
-                        <Link href={``}>Produtos</Link>
-                        {/* <NavigationMenu>
-                            <NavigationMenuList>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger className='bg-stone-100 text-'>
-                                        Categorias
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavigationMenuLink>a</NavigationMenuLink>
-                                        <NavigationMenuLink>b</NavigationMenuLink>
-                                        <NavigationMenuLink>c</NavigationMenuLink>
-                                    </NavigationMenuContent>
+
+                    {/* Navigation */}
+                    <NavigationMenu>
+                        <NavigationMenuList className="flex gap-8">
+                            {navItems.map((item, index) => (
+                                <NavigationMenuItem key={index}>
+                                    <NavigationMenuLink
+                                        href={item.href}
+                                        className="[font-family:'Manrope-Bold',Helvetica] font-bold text-white text-lg tracking-[-0.10px] leading-[18px]"
+                                    >
+                                        {item.text}
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu> */}
-                        <Link href={``}>Categorias</Link>
-                        <Link href="">Contato</Link>
-                        <Link href="">Reboques Especiais</Link>
-                    </div>
-                    <div>
-                        <Button variant={`link`} className='bg-stone-100 border-0 shadow-none text-red-500 font-bold '>
-                            <Link href={`/auth/login`} className='transition' prefetch={false}>ENTRAR</Link>
-                        </Button>
-                        <Button className='border-red-500 bg-inherit hover:bg-stone-200 border-solid border-2 text-red-500 font-bold '>
-                            <Link href={'/auth/register'} prefetch={false}>CADASTRAR-SE</Link>
-                        </Button>
-                    </div>
-                </nav>
-            </div>
-        </section>
+                            ))}
+                        </NavigationMenuList>
+                    </NavigationMenu>
+
+                    {/* Register Button */}
+                    <Button className="w-[152px] h-[41px] bg-[#c41010] rounded-[11px] border border-solid border-white [font-family:'Manrope-Bold',Helvetica] font-bold text-white text-lg tracking-[-0.10px] leading-[18px]">
+                        Registre-se
+                    </Button>
+                </div>
+            </header>
         </>
     )
 }
