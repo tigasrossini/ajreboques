@@ -73,23 +73,6 @@ export function NavMain({items, } : {
                 </SidebarMenu>
             </SidebarGroupContent>
         </SidebarGroup>
-
-        <SidebarGroup>
-            <SidebarGroupContent className="flex flex-col gap-2">
-                <SidebarGroupLabel>Transações</SidebarGroupLabel>
-                <SidebarMenu>
-                    {navRelatorios.map((item) => (
-                        <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton>
-                                {item.icon && <item.icon />}
-                                <span>{item.title}</span>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    ))}
-                </SidebarMenu>
-            </SidebarGroupContent>
-        </SidebarGroup>
-        
         </>
     )
 }
