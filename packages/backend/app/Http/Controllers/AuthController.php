@@ -19,6 +19,7 @@ class AuthController extends Controller{
            "password" => "required"
         ]);
 
+        $data['role'] = 'comum';
         User::create($data);
 
         return response()->json([

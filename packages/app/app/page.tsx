@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import { Footer } from "@/components/footer";
+=======
+'use client'
+>>>>>>> 10a228b119cdd967aec38f16f276dc00abf68d19
 import { NavBar } from "@/components/nav-bar";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from 'next/image';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 10a228b119cdd967aec38f16f276dc00abf68d19
 export default function Home() {
   return (
   <>
