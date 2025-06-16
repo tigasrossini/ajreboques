@@ -19,7 +19,9 @@ export default function Header(){
                 {/* Barra de pesquisa e trigger */}
                 <h1>barra de pesquisa</h1>
             </div>
-
+            <div className="text-sm font-semibold">
+                Página Inicial
+            </div>
             <div className="flex items-center gap-4 m-8">
                 {/* Botão de notificação, configuracoes e conta */}
                 <CircleHelp className="w-4 h-4 text-black hover:text-gray-700 cursor-pointer"/> 

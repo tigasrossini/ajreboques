@@ -1,25 +1,43 @@
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../../../../../components/ui/sidebar";
 import {NavMain} from "./nav-main";
-import { ChevronRight, FileTextIcon, GalleryVerticalEnd, HomeIcon, LayoutGrid, UserIcon } from "lucide-react";
-import { title } from "process";
-import { url } from "inspector";
+import { CalendarRange, Car, ChevronRight, Cloud, FileTextIcon, GalleryVerticalEnd, Grid3X3, HomeIcon, LayoutGrid, MessageSquareWarning, Paperclip, StickyNote, UserIcon } from "lucide-react";
 
 const data = {
     navMain: [
         {
             title: "Tela Inicial",
             url: "/dashboard/",
-            icon: HomeIcon
+            icon: LayoutGrid
         },
         {
-            title: "Relatórios",
-            url: "#",
-            icon: FileTextIcon
+            title: "Reboques",
+            url: "/dashboard/reboques",
+            icon: Car
+        },
+        {
+            title: "Orçamentos",
+            url: "/dashboard/orcamentos",
+            icon: StickyNote
+        },
+        {
+            title: "Arquivos",
+            url: "/dashboard/arquivos",
+            icon: Paperclip
+        },
+        {
+            title: "Notificações",
+            url: "/dashboard/notficacoes",
+            icon: MessageSquareWarning
         },
         {
             title: "Usuários",
-            url: "/dashboard/users",
+            url: "/dashboard/usuarios",
             icon: UserIcon
+        },
+        {
+            title: "Calendário",
+            url: "/dashboard/calendario",
+            icon: CalendarRange
         }
     ]
 }
