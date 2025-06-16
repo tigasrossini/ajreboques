@@ -1,79 +1,49 @@
-import {NavigationMenu, NavigationMenuTrigger, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuLink} from '@/components/ui/navigation-menu'
+import { NavigationMenu, NavigationMenuTrigger, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuLink } from '@/components/ui/navigation-menu'
 import { Button } from './ui/button'
 import Link from 'next/link'
 
-const defaultLogo = {
-    url: '/',
-    src: '../../logo.png',
-    alt: 'LOGO AJ REBOQUES',
-    title: 'AJ REBOQUES'
-}
-
-const defaultMenu = [
-    {
-        title: "a",
-        url: 'a'
-    },
-    {
-        title: 'b',
-        url: 'b'
-    }
-
-]
-
-type MenuItem = {
-    title: string,
-    url: string
-}
-
-interface navBarProps{
-    logo?: typeof defaultLogo,
-    menu?: MenuItem[]
-}
 
 
-export function NavBar({logo = defaultLogo, menu =  defaultMenu}: navBarProps){
-    return(
-        <>
-        <section>
-            <div>
-                <nav className="flex justify-between items-center px-4 py-2 border-b bg-stone-100">
-                    <div>
-                        <a href={logo.url} className="gap-4">
-                            <img src={logo.src} alt={logo.alt} title={logo.title}  />
-                        </a>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                        <Link href={``}>Produtos</Link>
-                        {/* <NavigationMenu>
-                            <NavigationMenuList>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger className='bg-stone-100 text-'>
-                                        Categorias
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavigationMenuLink>a</NavigationMenuLink>
-                                        <NavigationMenuLink>b</NavigationMenuLink>
-                                        <NavigationMenuLink>c</NavigationMenuLink>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu> */}
-                        <Link href={``}>Categorias</Link>
-                        <Link href="">Contato</Link>
-                        <Link href="">Reboques Especiais</Link>
-                    </div>
-                    <div>
-                        <Button variant={`link`} className='bg-stone-100 border-0 shadow-none text-red-500 font-bold '>
-                            <Link href={`/auth/login`} className='transition' prefetch={false}>ENTRAR</Link>
-                        </Button>
-                        <Button className='border-red-500 bg-inherit hover:bg-stone-200 border-solid border-2 text-red-500 font-bold '>
-                            <Link href={'/auth/register'} prefetch={false}>CADASTRAR-SE</Link>
-                        </Button>
-                    </div>
-                </nav>
+
+
+export function NavBar() {
+    const navItems = [
+        { text: "Sobre Nós", id: "sobre" },
+        { text: "Serviços", id: "servicos" },
+        { text: "Nosso trabalho", id: "trabalho" },
+        { text: "FAQs", id: "faqs" },
+        { text: "Contato", id: "contato" },
+    ]
+    
+    return (
+        <header className="w-full h-[100px] bg-[#101014] flex items-center">
+            <div className="container mx-auto px-6 flex justify-between items-center">
+                {/* Logo - texto branco */}
+                <div className="font-bold text-white text-lg tracking-[-0.10px]">
+                    AJ REBOQUES
+                </div>
+
+                {/* Navigation - itens em branco */}
+                <NavigationMenu>
+                    <NavigationMenuList className="flex gap-8">
+                        {navItems.map((item) => (
+                            <NavigationMenuItem key={item.id}>
+                                <NavigationMenuLink
+                                    className="font-bold text-white hover:text-gray-300 transition-colors text-lg tracking-[-0.10px] leading-[18px]"
+                                    href={`#${item.id}`}
+                                >
+                                    {item.text}
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        ))}
+                    </NavigationMenuList>
+                </NavigationMenu>
+
+                {/* Register Button (mantido como está) */}
+                <Button className="bg-[#c41010] text-white font-bold rounded-[11px] border border-solid border-white px-6 py-2.5 h-[41px] w-[152px]">
+                    Registre-se
+                </Button>
             </div>
-        </section>
-        </>
-    )
+        </header>
+    );
 }
